@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on TongJ-Writeups</title>
-    <link>https://tongj.github.io/posts/</link>
+    <link>https://t0ng-j.github.io/blog/posts/</link>
     <description>Recent content in Posts on TongJ-Writeups</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Nov 2021 19:39:05 +0700</lastBuildDate><atom:link href="https://tongj.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Nov 2021 19:39:05 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB - Cap</title>
-      <link>https://tongj.github.io/posts/htb-cap/</link>
+      <link>https://t0ng-j.github.io/blog/posts/htb-cap/</link>
       <pubDate>Fri, 05 Nov 2021 19:39:05 +0700</pubDate>
       
-      <guid>https://tongj.github.io/posts/htb-cap/</guid>
+      <guid>https://t0ng-j.github.io/blog/posts/htb-cap/</guid>
       <description>HTB - Cap  Linux - Easy IP = 10.10.10.245
 First Add hostname to /etc/hosts file, name cap.htb
 Enumuration Nmap: sudo nmap -A cap.htb

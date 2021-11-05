@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>HTB - Cap :: TongJ-Writeups</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The name of the machine is the hints" />
+<meta name="keywords" content="Hack The Box, Writeup" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://tongj.github.io/posts/htb-cap/" />
+
+
+
+
+<link rel="stylesheet" href="https://tongj.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://tongj.github.io/assets/red.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://tongj.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://tongj.github.io/img/favicon/red.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://twitter.com/tong_gygygy" />
+  
+    <meta name="twitter:creator" content="tong_gygygy" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HTB - Cap">
+<meta property="og:description" content="The name of the machine is the hints" />
+<meta property="og:url" content="https://tongj.github.io/posts/htb-cap/" />
+<meta property="og:site_name" content="TongJ-Writeups" />
+
+  <meta property="og:image" content="https://user-images.githubusercontent.com/58801547/134887620-ed65802e-3ee9-481a-acb2-c715b0ddb244.png">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-11-05 19:39:05 &#43;0700 &#43;07" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="red">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    3CAT🐱‍👤
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://tongj.github.io/posts/htb-cap/">HTB - Cap</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-11-05
+        
+      </span>
+    
+    
+      <span class="post-author">:: 3CAT</span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://tongj.github.io/tags/hack-the-box/">Hack The Box</a>&nbsp;
+    
+    #<a href="https://tongj.github.io/tags/writeup/">Writeup</a>&nbsp;
+    
+  </span>
+  
+  
+  <img src="https://user-images.githubusercontent.com/58801547/134887620-ed65802e-3ee9-481a-acb2-c715b0ddb244.png"
+    class="post-cover"
+    alt="HTB - Cap"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="htb---cap">HTB - Cap<a href="#htb---cap" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<hr>
+<h2 id="linux---easy">Linux - Easy<a href="#linux---easy" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>IP = 10.10.10.245</p>
+<p>First Add hostname to <code>/etc/hosts</code> file, name <strong>cap.htb</strong></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134887782-75fefd0e-13eb-4d01-8aa4-deccc54761d7.png" alt="image"></p>
+<h2 id="enumuration">Enumuration<a href="#enumuration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><strong>Nmap:</strong> <code>sudo nmap -A cap.htb</code></p>
+<p>Use Nmap scan for the open ports, 
+Here is some service information and web-server banner</p>
+<ul>
+<li>21  ftp vsfp 3.0.3</li>
+<li>22  ssh</li>
+<li>80  http gunicorn</li>
+</ul>
+<p>(gunicorn is a python Web Server Gateway Interface (WSGI) use for UNIX system).</p>
+<p>Somehow maybe the FTP and gunicorn have the vulnerability, after googling around I didn&rsquo;t find any critical or High vulnerability that can lead to exploit (trying FTP with anonymous login doesn&rsquo;t works too).</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134888516-fa417f77-fe02-40b7-a93a-4395f9fc0613.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134891674-7d8e991a-5c38-4ca7-90bd-ac7902c3f365.png" alt="image"></p>
+<p><strong>Gobuster:</strong> <code>gobuster dir -u http://cap.htb -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 20 -z</code></p>
+<p>Enum directory of the target with gobuster dir mode, found interesting directory and now I should go to the web and testing some workflow or how this web-app works.</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134892923-ea7602b9-a1f9-45a9-9f8c-bf704b5f3f30.png" alt="image"></p>
+<p>After discovery how this web-application works the data page contain logging of packet and store to pcap file in order and index it seem to have <strong>broken access control</strong> here, then I try to change index of data page by increase, decrease it and found this 0.pcap file as image below.</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134893920-02c85de2-5fb5-4427-9475-193e9df7e1f1.png" alt="image">
+<img src="https://user-images.githubusercontent.com/58801547/134894615-948e098f-a168-4528-8685-5820cadd1c1d.png" alt="image"></p>
+<p><strong>Wireshark:</strong> 
+Using wireshark to analyze the packet and found the FTP credential of <strong>nathan</strong></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134895350-7640623b-3c85-4308-89be-903b821dc321.png" alt="image"></p>
+<p><strong>Optional:</strong> using tshark to extract the information of packet by filtering</p>
+<p><strong>Tshark:</strong> <code>tshark -r 0.pcap -Y ftp</code></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134895531-20944d28-0636-4ccb-bddd-f05b40b801da.png" alt="image"></p>
+<h2 id="exploitation--privilege-escalation">Exploitation &amp; Privilege Escalation<a href="#exploitation--privilege-escalation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Now I got the FTP credential but it should try login on other places too such as, <strong>SSH</strong> and then got the user :)</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134896003-c93b0f0f-b39f-4860-b00e-495cfcad491f.png" alt="image"></p>
+<p>Look like <strong>nathan</strong> doesn&rsquo;t have any sudo permission so I use <strong>linpeas</strong> to enumuration more information so I can escalate to root</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134896243-8603cc22-0f48-44fb-85bd-4cb5b2294553.png" alt="image"></p>
+<p><strong>Scp:</strong> <code>scp filename user@remotehost:location</code></p>
+<p>Since I know the <strong>ssh</strong> user credential I just use <strong>scp</strong> to transfer file between <strong>local</strong> and <strong>remote machine</strong></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134896685-f356e4fa-9177-4a0c-a5dd-a6bc2f87ddb4.png" alt="image"></p>
+<p><strong>Linpeas:</strong></p>
+<p>Now run the <strong>linpeas.sh</strong> then I got some information, it obvious this machine have capability of <strong>cap_setuid</strong> function and can access through <strong>python</strong> then I can escalate to root with just basic python script</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134897124-42c308a6-ed11-4f34-9902-580a4b1d25e8.png" alt="image"></p>
+<p>Run <code>python3 -c 'import os; os.setuid(0); os.system(&quot;/bin/bash -i&quot;)'</code> and then get rooted 🐱‍👤 quiet easy right?</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/134898083-597037e8-020e-42ca-8956-ce3b1e1f7415.png" alt="image"></p>
+<hr>
+
+      </div></div>
+
+  
+  
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://tongj.github.io/assets/main.js"></script>
+<script src="https://tongj.github.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

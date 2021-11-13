@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TongJ-Writeups</title>
-    <link>https://t0ng-j.github.io/</link>
-    <description>Recent content on TongJ-Writeups</description>
+    <title>HackTheBox on TongJ-Writeups</title>
+    <link>https://t0ng-j.github.io/tags/hackthebox/</link>
+    <description>Recent content in HackTheBox on TongJ-Writeups</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Nov 2021 19:44:20 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Nov 2021 19:44:20 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB - Explore</title>
       <link>https://t0ng-j.github.io/posts/htb-explore/</link>
@@ -88,34 +88,6 @@ them and I found the &lt;strong&gt;FreeCIV Arbitrary Code Execution&lt;/strong&g
 &lt;p&gt;&lt;a href=&#34;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&#34;&gt;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/&#34;&gt;https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html&#34;&gt;https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html&lt;/a&gt;&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Showcase</title>
-      <link>https://t0ng-j.github.io/showcase/</link>
-      <pubDate>Fri, 05 Nov 2021 21:26:40 +0700</pubDate>
-      
-      <guid>https://t0ng-j.github.io/showcase/</guid>
-      <description>Nothing to see here bro</description>
-      <content>&lt;p&gt;&lt;strong&gt;Nothing to see here bro&lt;/strong&gt;&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://t0ng-j.github.io/about/</link>
-      <pubDate>Fri, 05 Nov 2021 20:55:58 +0700</pubDate>
-      
-      <guid>https://t0ng-j.github.io/about/</guid>
-      <description>Hello there 👌  My name is Tong, I&amp;rsquo;m just Computer-Engineering student who interests in Hacking 📚 I’m currently learning Penetration testing, Ethical Hacking 🐱‍👤 This is my write-up website of Hack The Box machines  </description>
-      <content>&lt;h1 id=&#34;hello-there-&#34;&gt;Hello there 👌&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;My name is Tong, I&amp;rsquo;m just Computer-Engineering student who interests in Hacking&lt;/li&gt;
-&lt;li&gt;📚 I’m currently learning Penetration testing, Ethical Hacking&lt;/li&gt;
-&lt;li&gt;🐱‍👤 This is my write-up website of Hack The Box machines&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.hackthebox.eu/badge/image/370893&#34; alt=&#34;profile&#34;&gt;&lt;/p&gt;
 </content>
     </item>
     

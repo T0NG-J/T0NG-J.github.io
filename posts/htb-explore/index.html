@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>HTB - Explore :: TongJ-Writeups</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is one of my first Android machine, CVE after CVE 😄" />
+<meta name="keywords" content="HackTheBox, Writeup, Explore" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://t0ng-j.github.io/posts/htb-explore/" />
+
+
+
+
+<link rel="stylesheet" href="https://t0ng-j.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://t0ng-j.github.io/assets/red.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://t0ng-j.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://t0ng-j.github.io/img/favicon/red.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://twitter.com/tong_gygygy" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HTB - Explore">
+<meta property="og:description" content="This is one of my first Android machine, CVE after CVE 😄" />
+<meta property="og:url" content="https://t0ng-j.github.io/posts/htb-explore/" />
+<meta property="og:site_name" content="TongJ-Writeups" />
+
+  <meta property="og:image" content="https://user-images.githubusercontent.com/58801547/141645088-c978f3d9-c220-4def-b855-46cd511358ba.png">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-11-13 19:44:20 &#43;0700 &#43;07" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="red">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    3CAT🐱‍👤
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://t0ng-j.github.io/posts/htb-explore/">HTB - Explore</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-11-13
+        
+      </span>
+    
+    
+      <span class="post-author">:: 3CAT</span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://t0ng-j.github.io/tags/hackthebox/">HackTheBox</a>&nbsp;
+    
+    #<a href="https://t0ng-j.github.io/tags/writeup/">Writeup</a>&nbsp;
+    
+    #<a href="https://t0ng-j.github.io/tags/explore/">Explore</a>&nbsp;
+    
+  </span>
+  
+  
+  <img src="https://user-images.githubusercontent.com/58801547/141645088-c978f3d9-c220-4def-b855-46cd511358ba.png"
+    class="post-cover"
+    alt="HTB - Explore"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="htb---explore">HTB - Explore<a href="#htb---explore" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="android---easy">Android - Easy<a href="#android---easy" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>IP = 10.10.10.247</p>
+<h2 id="enumuration">Enumuration<a href="#enumuration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Likes always run Nmap scan for opening port</p>
+<p><strong>Nmap:</strong> <code>sudo nmap -sSVC -p- explore.htb -oA nmap/explore</code></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2222/tcp</td>
+<td style="text-align:center">SSH-2.0-SSH Server - Banana Studio</td>
+</tr>
+<tr>
+<td>5555/tcp</td>
+<td style="text-align:center">freeciv</td>
+</tr>
+<tr>
+<td>42135/tcp</td>
+<td style="text-align:center">ES File Explorer Name Response httpd</td>
+</tr>
+<tr>
+<td>42207/tcp</td>
+<td style="text-align:center">unknown</td>
+</tr>
+<tr>
+<td>59777/tcp</td>
+<td style="text-align:center">Bukkit JSONAPI httpd for Minecraft game server 3.6.0</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://user-images.githubusercontent.com/58801547/141645038-e445b2b3-8bd2-4e18-8169-cc7c7034c81d.png" alt="nmap1"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141645389-ade36ba0-d99a-4ecf-acbb-8a08efdc88ec.png" alt="nmap2"></p>
+<blockquote>
+<p>Freeciv, ES File Explorer and Bukkit JSONAPI httpd is quiet interesting then I research some CVE, vulnerabilities about
+them and I found the <strong>FreeCIV Arbitrary Code Execution</strong> and <strong>ES File Explorer - Arbitrary File Read</strong> (the FreeCIV exploit can get root maybe this was privilege escalation part)</p>
+</blockquote>
+<p><strong>Metasploit:</strong> <code>Module ES File Explorer Open Port</code></p>
+<p>This module was create from <a href="https://www.cvedetails.com/cve/CVE-2019-6447/">CVE-2019-6447</a>,<strong>ES File Explorer - Arbitrary File Read</strong> So I use it to get more information on this machine</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141645965-03349cca-77f3-4e5a-bac7-b55dcff8ba86.png" alt="met1"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141646692-b8ade327-3f15-4932-9d67-05f8b57af7d4.png" alt="met2"></p>
+<blockquote>
+<p>After list some files I found the <code>creds.jpg</code> file, looks like it contains user credentials, I access that path in browser <code>http://explore.htb:59777/storage/emulated/0/DCIM/creds.jpg</code> then I got some user credential</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/141646875-bfb3f5c8-6b28-4e20-a343-aaff46dcd5f9.png" alt="cred"></p>
+<p><strong>SSH:</strong> <code>ssh kristi@explore.htb -p 2222</code> with <code>Kristi:Kr1sT!5h@Rp3xPl0r3!</code></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141647437-4efc2217-512b-4527-bf56-e29244a98619.png" alt="ssh"></p>
+<blockquote>
+<p>I try <code>SSH</code> with the Kristi user and got it now look for <code>user.txt</code></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/141647685-4cc459b8-8fbd-40e7-9d7a-b1786bf40956.png" alt="user.txt"></p>
+<blockquote>
+<p>I list all files and found the link directory name <code>sdcard</code> link to primary storage of the device and then found <code>user.txt</code></p>
+</blockquote>
+<h2 id="exploitation--privilege-escalation">Exploitation &amp; Privilege Escalation<a href="#exploitation--privilege-escalation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Now I try the Freeciv <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2445">CVE-2010-2445</a> that I found early in the enumeration part I try <code>ADB</code> connect from my kali -&gt; machine and it does not work and the remote machine does not have <code>ADB</code> too</p>
+<p>So I use Tunneling to access the <code>5555</code> ADB port with this I can access remote machine specific port through my local machine</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141648285-4e906813-a3b7-417e-a348-d25d5f3b15a6.png" alt="tunneling"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/141648759-dd55387e-26e4-4de6-9d5d-b5281869a5a9.png" alt="root"></p>
+<blockquote>
+<p>Now I can use <code>ADB</code> to connect and got shell user since it doesn&rsquo;t require any authentication, I just <code>su</code> to login as root and got <code>root.txt</code></p>
+</blockquote>
+<h2 id="referrences">Referrences<a href="#referrences" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/">https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/</a></p>
+<p><a href="https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/">https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/</a></p>
+<p><a href="https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html">https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html</a></p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://t0ng-j.github.io/posts/htb-cap/">
+                <span class="button__text">HTB - Cap</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://t0ng-j.github.io/assets/main.js"></script>
+<script src="https://t0ng-j.github.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

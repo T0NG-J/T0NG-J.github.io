@@ -84,7 +84,7 @@ them and I found the &lt;strong&gt;FreeCIV Arbitrary Code Execution&lt;/strong&g
 &lt;blockquote&gt;
 &lt;p&gt;Now I can use &lt;code&gt;ADB&lt;/code&gt; to connect and got shell user since it doesn&amp;rsquo;t require any authentication, I just &lt;code&gt;su&lt;/code&gt; to login as root and got &lt;code&gt;root.txt&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;referrences&#34;&gt;Referrences&lt;/h2&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&#34;&gt;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/&#34;&gt;https://labs.f-secure.com/blog/hackin-around-the-christmas-tree/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html&#34;&gt;https://packetstormsecurity.com/files/163311/Android-2.0-FreeCIV-Arbitrary-Code-Execution.html&lt;/a&gt;&lt;/p&gt;

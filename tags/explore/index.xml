@@ -14,13 +14,13 @@
       
       <guid>https://t0ng-j.github.io/posts/htb-explore/</guid>
       <description>HTB - Explore Android - Easy IP = 10.10.10.247
-Enumuration Likes always run Nmap scan for opening port
+Enumeration Likes always run Nmap scan for opening port
 Nmap: sudo nmap -sSVC -p- explore.htb -oA nmap/explore
-   Port Service     2222/tcp SSH-2.0-SSH Server - Banana Studio   5555/tcp freeciv   42135/tcp ES File Explorer Name Response httpd   42207/tcp unknown   59777/tcp Bukkit JSONAPI httpd for Minecraft game server 3.6.0     Freeciv, ES File Explorer and Bukkit JSONAPI httpd is quiet interesting then I research some CVE, vulnerabilities about them and I found the FreeCIV Arbitrary Code Execution and ES File Explorer - Arbitrary File Read (the FreeCIV exploit can get root maybe this was privilege escalation part)</description>
+   Port Service     2222/tcp SSH-2.0-SSH Server - Banana Studio   5555/tcp freeciv   42135/tcp ES File Explorer Name Response httpd   42207/tcp unknown   59777/tcp Bukkit JSONAPI httpd for Minecraft game server 3.6.0     Freeciv, ES File Explorer, and Bukkit JSONAPI httpd is quite interesting then I research some CVE, vulnerabilities about them and I found the FreeCIV Arbitrary Code Execution and ES File Explorer - Arbitrary File Read (the FreeCIV exploit can get root maybe this was privilege escalation part)</description>
       <content>&lt;h1 id=&#34;htb---explore&#34;&gt;HTB - Explore&lt;/h1&gt;
 &lt;h2 id=&#34;android---easy&#34;&gt;Android - Easy&lt;/h2&gt;
 &lt;p&gt;IP = 10.10.10.247&lt;/p&gt;
-&lt;h2 id=&#34;enumuration&#34;&gt;Enumuration&lt;/h2&gt;
+&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;
 &lt;p&gt;Likes always run Nmap scan for opening port&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Nmap:&lt;/strong&gt; &lt;code&gt;sudo nmap -sSVC -p- explore.htb -oA nmap/explore&lt;/code&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -56,15 +56,15 @@ Nmap: sudo nmap -sSVC -p- explore.htb -oA nmap/explore
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141645038-e445b2b3-8bd2-4e18-8169-cc7c7034c81d.png&#34; alt=&#34;nmap1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141645389-ade36ba0-d99a-4ecf-acbb-8a08efdc88ec.png&#34; alt=&#34;nmap2&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Freeciv, ES File Explorer and Bukkit JSONAPI httpd is quiet interesting then I research some CVE, vulnerabilities about
+&lt;p&gt;Freeciv, ES File Explorer, and Bukkit JSONAPI httpd is quite interesting then I research some CVE, vulnerabilities about
 them and I found the &lt;strong&gt;FreeCIV Arbitrary Code Execution&lt;/strong&gt; and &lt;strong&gt;ES File Explorer - Arbitrary File Read&lt;/strong&gt; (the FreeCIV exploit can get root maybe this was privilege escalation part)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Metasploit:&lt;/strong&gt; &lt;code&gt;Module ES File Explorer Open Port&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This module was create from &lt;a href=&#34;https://www.cvedetails.com/cve/CVE-2019-6447/&#34;&gt;CVE-2019-6447&lt;/a&gt;,&lt;strong&gt;ES File Explorer - Arbitrary File Read&lt;/strong&gt; So I use it to get more information on this machine&lt;/p&gt;
+&lt;p&gt;This module was created from &lt;a href=&#34;https://www.cvedetails.com/cve/CVE-2019-6447/&#34;&gt;CVE-2019-6447&lt;/a&gt;,&lt;strong&gt;ES File Explorer - Arbitrary File Read&lt;/strong&gt; So I use it to get more information on this machine&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141645965-03349cca-77f3-4e5a-bac7-b55dcff8ba86.png&#34; alt=&#34;met1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141646692-b8ade327-3f15-4932-9d67-05f8b57af7d4.png&#34; alt=&#34;met2&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;After list some files I found the &lt;code&gt;creds.jpg&lt;/code&gt; file, looks like it contains user credentials, I access that path in browser &lt;code&gt;http://explore.htb:59777/storage/emulated/0/DCIM/creds.jpg&lt;/code&gt; then I got some user credential&lt;/p&gt;
+&lt;p&gt;After listing some files I found the &lt;code&gt;creds.jpg&lt;/code&gt; file, looks like it contains user credentials, I access that path in browser &lt;code&gt;http://explore.htb:59777/storage/emulated/0/DCIM/creds.jpg&lt;/code&gt; then I got some user credential&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141646875-bfb3f5c8-6b28-4e20-a343-aaff46dcd5f9.png&#34; alt=&#34;cred&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;SSH:&lt;/strong&gt; &lt;code&gt;ssh kristi@explore.htb -p 2222&lt;/code&gt; with &lt;code&gt;Kristi:Kr1sT!5h@Rp3xPl0r3!&lt;/code&gt;&lt;/p&gt;
@@ -82,7 +82,7 @@ them and I found the &lt;strong&gt;FreeCIV Arbitrary Code Execution&lt;/strong&g
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141648285-4e906813-a3b7-417e-a348-d25d5f3b15a6.png&#34; alt=&#34;tunneling&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/141648759-dd55387e-26e4-4de6-9d5d-b5281869a5a9.png&#34; alt=&#34;root&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Now I can use &lt;code&gt;ADB&lt;/code&gt; to connect and got shell user since it doesn&amp;rsquo;t require any authentication, I just &lt;code&gt;su&lt;/code&gt; to login as root and got &lt;code&gt;root.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now I can use &lt;code&gt;ADB&lt;/code&gt; to connect and get shell user since it doesn&amp;rsquo;t require any authentication, I just &lt;code&gt;su&lt;/code&gt; to login as root and got &lt;code&gt;root.txt&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&#34;&gt;https://www.rapid7.com/db/modules/auxiliary/scanner/http/es_file_explorer_open_port/&lt;/a&gt;&lt;/p&gt;

@@ -6,13 +6,13 @@
     <description>Recent content in Tags on TongJ-Writeups</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Nov 2021 19:44:20 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 19:51:35 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Explore</title>
-      <link>https://t0ng-j.github.io/tags/explore/</link>
-      <pubDate>Sat, 13 Nov 2021 19:44:20 +0700</pubDate>
+      <title>Forge</title>
+      <link>https://t0ng-j.github.io/tags/forge/</link>
+      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
       
-      <guid>https://t0ng-j.github.io/tags/explore/</guid>
+      <guid>https://t0ng-j.github.io/tags/forge/</guid>
       <description></description>
       <content></content>
     </item>
@@ -20,7 +20,7 @@
     <item>
       <title>HackTheBox</title>
       <link>https://t0ng-j.github.io/tags/hackthebox/</link>
-      <pubDate>Sat, 13 Nov 2021 19:44:20 +0700</pubDate>
+      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
       
       <guid>https://t0ng-j.github.io/tags/hackthebox/</guid>
       <description></description>
@@ -30,9 +30,19 @@
     <item>
       <title>Writeup</title>
       <link>https://t0ng-j.github.io/tags/writeup/</link>
-      <pubDate>Sat, 13 Nov 2021 19:44:20 +0700</pubDate>
+      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
       
       <guid>https://t0ng-j.github.io/tags/writeup/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Explore</title>
+      <link>https://t0ng-j.github.io/tags/explore/</link>
+      <pubDate>Sat, 13 Nov 2021 19:44:20 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/explore/</guid>
       <description></description>
       <content></content>
     </item>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>HTB - Forge :: TongJ-Writeups</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SSRF vulnerability with PDB" />
+<meta name="keywords" content="HackTheBox, Writeup, Forge" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://t0ng-j.github.io/posts/htb-forge/" />
+
+
+
+
+<link rel="stylesheet" href="https://t0ng-j.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://t0ng-j.github.io/assets/blue.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://t0ng-j.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://favicon-generator.org/favicon-generator/htdocs/favicons/2021-11-13/7fbcbd937c17f4fe9b6e63efccdd1868.ico.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://twitter.com/tong_gygygy" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HTB - Forge">
+<meta property="og:description" content="SSRF vulnerability with PDB" />
+<meta property="og:url" content="https://t0ng-j.github.io/posts/htb-forge/" />
+<meta property="og:site_name" content="TongJ-Writeups" />
+
+  <meta property="og:image" content="https://user-images.githubusercontent.com/58801547/154256461-3054c5c5-f852-49c3-be21-42c117617fb8.png">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2022-02-16 19:51:35 &#43;0700 &#43;07" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    3CAT🐱‍👤
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://t0ng-j.github.io/posts/htb-forge/">HTB - Forge</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2022-02-16
+        
+      </span>
+    
+    
+      <span class="post-author">:: 3CAT</span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://t0ng-j.github.io/tags/hackthebox/">HackTheBox</a>&nbsp;
+    
+    #<a href="https://t0ng-j.github.io/tags/writeup/">Writeup</a>&nbsp;
+    
+    #<a href="https://t0ng-j.github.io/tags/forge/">Forge</a>&nbsp;
+    
+  </span>
+  
+  
+  <img src="https://user-images.githubusercontent.com/58801547/154256461-3054c5c5-f852-49c3-be21-42c117617fb8.png"
+    class="post-cover"
+    alt="HTB - Forge"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="htb---forge">HTB - Forge<a href="#htb---forge" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="linux---medium">Linux - Medium<a href="#linux---medium" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>IP = 10.10.11.111</p>
+<h2 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Same as always I run <code>nmap</code> first.</p>
+<p><strong>Nmap:</strong> <code>nmap -sSVC -p- -v -T4 -oA nmap/forge forge.htb</code></p>
+<table>
+<thead>
+<tr>
+<th>PORT</th>
+<th style="text-align:center">SERVICE &amp; VERSION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21/tcp</td>
+<td style="text-align:center">ftp</td>
+</tr>
+<tr>
+<td>22/tcp</td>
+<td style="text-align:center">OpenSSH 8.2p1 Ubuntu 4ubuntu0.3</td>
+</tr>
+<tr>
+<td>80/tcp</td>
+<td style="text-align:center">Apache httpd 2.4.41</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://user-images.githubusercontent.com/58801547/154244127-d7c029ff-86e2-41d3-9b27-da507c18ca0c.png" alt="nmap"></p>
+<blockquote>
+<p><code>ftp</code> is interesting but I need to find the credentials first.</p>
+</blockquote>
+<p><strong>Gobuster (dir):</strong> <code>gobuster dir -u http://forge.htb/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -z -o gobuster/forge-dir</code></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154246653-d17e6ca4-a2d1-4d87-b943-d2df42204163.png" alt="gobuster_dir"></p>
+<blockquote>
+<p>There&rsquo;s the upload route.</p>
+</blockquote>
+<p><strong>Gobuster (vhost):</strong> <code>gobuster vhost -u http://forge.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -z -o subdomain/sub.txt</code></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154246976-ea9e2c3a-3a58-4b6f-9dcd-386ac8208c03.png" alt="gobuster_vhost"></p>
+<blockquote>
+<p>Found <code>admin.forge.htb</code> subdomain but can&rsquo;t directly access it.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/154247049-9362cf47-1ad8-4a44-bdd7-5d6ec498b9ef.png" alt="web1"></p>
+<blockquote>
+<p>Look like this web have SSRF vulnerability, So I try to inject with 127.0.0.1, localhost or admin.forge.htb but it&rsquo;s all getting filtered.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/154247634-086c0d01-ae5c-464d-8f17-9e34f564caa9.png" alt="found_vul"></p>
+<blockquote>
+<p>I bypass the filter with Uppercase character and It just works.</p>
+</blockquote>
+<p><img src="https://c.tenor.com/rkI1a8s2Z6QAAAAC/todd-howard-it-just-works.gif" alt="meme"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154248479-23093ee3-b85d-47c9-8826-101c4d37869a.png" alt="admin"></p>
+<blockquote>
+<p>Now I got the <code>admin.forge.htb</code> page and It has another interesting route.</p>
+</blockquote>
+<p><code>user:heightofsecurity123!</code>
+<img src="https://user-images.githubusercontent.com/58801547/154248708-a05f643b-b70f-4b04-917e-8cbe650dc9a1.png" alt="announcement"></p>
+<blockquote>
+<p>The announcements page give the information of <code>ftp</code> credential and how to upload the file with <code>ftp</code> through URL, So I can construct the payload to retrieve some essential file like <code>.ssh/id_rsa</code> the ssh private key.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/154250396-95085771-4594-45e2-b38d-114e0e28c8fa.png" alt="try_ssh"></p>
+<blockquote>
+<p>I try <code>ssh</code> with the <code>ftp</code> credential but It not work and It only uses the <strong>Private key</strong> for authentication.</p>
+</blockquote>
+<h2 id="exploitation">Exploitation<a href="#exploitation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With the information on the announcements page, I can retrieve the file with the parameter <code>u</code>
+The payload will be:
+<code>http://admin.Forge.htb/upload?u=ftp://user:heightofsecurity123!@Forge.htb/.ssh/id_rsa</code></p>
+<p>Now I can login with <code>user</code>and got the user part as well.
+<img src="https://user-images.githubusercontent.com/58801547/154251209-796b7d61-34e1-4ae6-955e-80f929bce2b4.png" alt="user"></p>
+<h2 id="privilege-escalation">Privilege Escalation<a href="#privilege-escalation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>1st things TODO after got user try <code>sudo -l</code>.</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154251225-1c16f6db-0a8e-478e-94a9-d4d6fab246ff.png" alt="sudo -l"></p>
+<blockquote>
+<p>The <code>remote-manage.py</code> file can lead to the root part.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/154254262-f7ba2e73-5ab8-43a9-998a-c8af6eaa9a46.png" alt="remote-manage.py"></p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154251961-91dce625-5240-405b-8e62-ceb526f832ed.png" alt="remote-manage.py2"></p>
+<blockquote>
+<p>After reading the source code of <code>remote-manage.py</code> look like It&rsquo;ll create a socket server waiting for connection on a random port.
+And It checking the secret password that obvious is in the program.
+The actually interesting part is <code>pdb</code>.</p>
+</blockquote>
+<p><img src="https://c.tenor.com/zHOmFEhWax8AAAAC/sarcasm-obviously.gif" alt="meme2"></p>
+<p><code>pdb</code> is The module pdb defines an interactive source code debugger for Python programs
+Then I just run the <code>remote-manage.py</code> with <code>sudo</code> permission and use <code>nc</code> to connect back to the socket server.</p>
+<p><img src="https://user-images.githubusercontent.com/58801547/154255310-08961d9e-6aae-49ea-8883-99d00875d08b.png" alt="error"></p>
+<blockquote>
+<p>And then I&rsquo;m trying to cause an error to trigger the <code>pdb</code> with string input.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/58801547/154255456-0e23e183-e08a-44f8-a987-868b9575d203.png" alt="image"></p>
+<blockquote>
+<p>The exception handler triggers the pdb and then just import os module and boom! got the root shell.</p>
+</blockquote>
+<p>This machine should be easy in my opinion lul.</p>
+<h2 id="ref">Ref:<a href="#ref" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.python.org/3/library/pdb.html">https://docs.python.org/3/library/pdb.html</a></p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://t0ng-j.github.io/posts/htb-explore/">
+                <span class="button__text">HTB - Explore</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://t0ng-j.github.io/assets/main.js"></script>
+<script src="https://t0ng-j.github.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

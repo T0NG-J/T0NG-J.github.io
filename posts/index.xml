@@ -102,7 +102,7 @@ And It checking the secret password that obvious is in the program.
 The actually interesting part is &lt;code&gt;pdb&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://c.tenor.com/zHOmFEhWax8AAAAC/sarcasm-obviously.gif&#34; alt=&#34;meme2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;pdb&lt;/code&gt; is The module pdb defines an interactive source code debugger for Python programs
+&lt;p&gt;&lt;code&gt;pdb&lt;/code&gt; is one of python module, &lt;code&gt;pdb&lt;/code&gt; defines an interactive source code debugger for Python programs
 Then I just run the &lt;code&gt;remote-manage.py&lt;/code&gt; with &lt;code&gt;sudo&lt;/code&gt; permission and use &lt;code&gt;nc&lt;/code&gt; to connect back to the socket server.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/58801547/154255310-08961d9e-6aae-49ea-8883-99d00875d08b.png&#34; alt=&#34;error&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;

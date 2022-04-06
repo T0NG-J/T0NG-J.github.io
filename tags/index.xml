@@ -6,21 +6,11 @@
     <description>Recent content in Tags on TongJ-Writeups</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Feb 2022 19:51:35 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Forge</title>
-      <link>https://t0ng-j.github.io/tags/forge/</link>
-      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
-      
-      <guid>https://t0ng-j.github.io/tags/forge/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
+    <lastBuildDate>Wed, 06 Apr 2022 15:25:43 +0700</lastBuildDate><atom:link href="https://t0ng-j.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackTheBox</title>
       <link>https://t0ng-j.github.io/tags/hackthebox/</link>
-      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
+      <pubDate>Wed, 06 Apr 2022 15:25:43 +0700</pubDate>
       
       <guid>https://t0ng-j.github.io/tags/hackthebox/</guid>
       <description></description>
@@ -28,11 +18,31 @@
     </item>
     
     <item>
+      <title>Timelapse</title>
+      <link>https://t0ng-j.github.io/tags/timelapse/</link>
+      <pubDate>Wed, 06 Apr 2022 15:25:43 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/timelapse/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
       <title>Writeup</title>
       <link>https://t0ng-j.github.io/tags/writeup/</link>
-      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
+      <pubDate>Wed, 06 Apr 2022 15:25:43 +0700</pubDate>
       
       <guid>https://t0ng-j.github.io/tags/writeup/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Forge</title>
+      <link>https://t0ng-j.github.io/tags/forge/</link>
+      <pubDate>Wed, 16 Feb 2022 19:51:35 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/forge/</guid>
       <description></description>
       <content></content>
     </item>

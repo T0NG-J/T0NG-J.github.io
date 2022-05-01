@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello Friend</title>
+    
+    
+    
+    <link>https://t0ng-j.github.io/</link>
+    <description>Recent content on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 May 2022 16:47:16 +0700</lastBuildDate>
+    
+	<atom:link href="https://t0ng-j.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://t0ng-j.github.io/posts/why/</link>
+      <pubDate>Sun, 01 May 2022 16:47:16 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/posts/why/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Testing bro
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

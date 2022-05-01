@@ -1,17 +1,138 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hello Friend</title>
+    <title>Tags on 3cat&#39;s blog</title>
     
     
     
     <link>https://t0ng-j.github.io/tags/</link>
-    <description>Recent content in Tags on Hello Friend</description>
+    <description>Recent content in Tags on 3cat&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 01 May 2022 17:42:26 +0700</lastBuildDate>
     
 	<atom:link href="https://t0ng-j.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forge</title>
+      <link>https://t0ng-j.github.io/tags/forge/</link>
+      <pubDate>Sun, 01 May 2022 17:42:26 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/forge/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Hackthebox</title>
+      <link>https://t0ng-j.github.io/tags/hackthebox/</link>
+      <pubDate>Sun, 01 May 2022 17:42:26 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/hackthebox/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Write-up</title>
+      <link>https://t0ng-j.github.io/tags/write-up/</link>
+      <pubDate>Sun, 01 May 2022 17:42:26 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/write-up/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Timelapse</title>
+      <link>https://t0ng-j.github.io/tags/timelapse/</link>
+      <pubDate>Sun, 01 May 2022 17:42:22 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/timelapse/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explore</title>
+      <link>https://t0ng-j.github.io/tags/explore/</link>
+      <pubDate>Sun, 01 May 2022 17:42:15 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/explore/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Cap</title>
+      <link>https://t0ng-j.github.io/tags/cap/</link>
+      <pubDate>Sun, 01 May 2022 17:38:17 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/tags/cap/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
   </channel>
 </rss>

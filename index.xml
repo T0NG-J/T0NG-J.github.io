@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hello Friend</title>
+    <title>3cat&#39;s blog</title>
     
     
     
     <link>https://t0ng-j.github.io/</link>
-    <description>Recent content on Hello Friend</description>
+    <description>Recent content on 3cat&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 May 2022 16:47:16 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 01 May 2022 17:42:26 +0700</lastBuildDate>
     
 	<atom:link href="https://t0ng-j.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>https://t0ng-j.github.io/posts/why/</link>
-      <pubDate>Sun, 01 May 2022 16:47:16 +0700</pubDate>
+      <title>Forge</title>
+      <link>https://t0ng-j.github.io/posts/forge/</link>
+      <pubDate>Sun, 01 May 2022 17:42:26 +0700</pubDate>
       
-      <guid>https://t0ng-j.github.io/posts/why/</guid>
+      <guid>https://t0ng-j.github.io/posts/forge/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://user-images.githubusercontent.com/58801547/161932925-f1bd7074-7775-4b5e-892e-365160ba6886.png&#34;/&gt;
+          
+        
+        
+        
+           
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Timelapse</title>
+      <link>https://t0ng-j.github.io/posts/timelapse/</link>
+      <pubDate>Sun, 01 May 2022 17:42:22 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/posts/timelapse/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://user-images.githubusercontent.com/58801547/161899302-bdb1da7c-6ba5-48e0-a97d-590015c25e4d.png&#34;/&gt;
+          
+        
+        
+        
+           
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explore</title>
+      <link>https://t0ng-j.github.io/posts/explore/</link>
+      <pubDate>Sun, 01 May 2022 17:42:15 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/posts/explore/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://user-images.githubusercontent.com/58801547/161933589-41fe1c5c-d0c5-4cd4-9778-1b505642734f.png&#34;/&gt;
+          
+        
+        
+        
+           
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Cap</title>
+      <link>https://t0ng-j.github.io/posts/cap/</link>
+      <pubDate>Sun, 01 May 2022 17:38:17 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/posts/cap/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://user-images.githubusercontent.com/58801547/161933091-35dc4b85-dadf-485a-981c-6e12180f649a.png&#34;/&gt;
+          
+        
+        
+        
+           
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>https://t0ng-j.github.io/showcase/</link>
+      <pubDate>Sun, 01 May 2022 17:12:46 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/showcase/</guid>
       <description>
         
           
@@ -28,7 +104,29 @@
         
         
         
-          Testing bro
+          GCC 2022 Taiwan# I&amp;rsquo;m one of the participants from Thailand 😁
+ 
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://t0ng-j.github.io/about/</link>
+      <pubDate>Sun, 01 May 2022 17:12:37 +0700</pubDate>
+      
+      <guid>https://t0ng-j.github.io/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hello there 👌# My name is Tong, 3cat (tiple-cat)
+  📚 I’m currently learning Penetration testing, Ethical Hacking 🐱‍👤 This blog is just my write up of hack the box machines  
           
         
         </description>
